@@ -10,6 +10,7 @@ public class CoffeStack : MonoBehaviour
     public int i = -1;
     public int totalMoney;
     public TMP_Text PriceText;
+    public TMP_Text TotalPriceText;
     public float movementDelay;
     public static CoffeStack instance;
     public List<GameObject> cups = new List<GameObject>();
@@ -28,6 +29,7 @@ public class CoffeStack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TotalPriceText.text= totalMoney.ToString() + "$";
         PriceText.text = calculatePrice().ToString() + "$";
         if (Input.GetMouseButton(0))
         {
@@ -67,7 +69,7 @@ public class CoffeStack : MonoBehaviour
             newPos.x= Mathf.Clamp(newPos.x, -7, 7);
 
             cups[i].transform.DOMove(newPos,0.2f);
-            cups[i].transform.DOScale(new Vector3(1, 2, 1), 0.1f);
+            cups[i].transform.DOScale(new Vector3(1, 1, 1), 0.1f);
             cups.Remove(cups[i]);
         }
     }
@@ -84,11 +86,11 @@ public class CoffeStack : MonoBehaviour
     {
         for (int i = cups.Count-1; i > 0; i--){
             int index = i;
-            Vector3 scale = new Vector3(1, 2, 1);
+            Vector3 scale = new Vector3(1, 1, 1);
             scale *= 1.5f;
 
             cups[index].transform.DOScale(scale, 0.1f).OnComplete(() =>
-             cups[index].transform.DOScale(new Vector3(1, 2, 1), 0.1f));
+             cups[index].transform.DOScale(new Vector3(1, 1, 1), 0.1f));
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -105,8 +107,8 @@ public class CoffeStack : MonoBehaviour
         Vector3 enPos = cups[0].transform.position;
         Destroy(gameObject.GetComponent<Movement>());
 
-        enPos.y += totalMoney*3;
-        cups[0].transform.DOMove(enPos,5);
+        enPos.y += totalMoney*2;
+        cups[0].transform.DOMove(enPos,10);
     }
     private int calculatePrice(){
         int price = 0;

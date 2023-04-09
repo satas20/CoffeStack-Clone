@@ -13,13 +13,15 @@ There is a 2 Sceenes in the project, FreeAsset Scenee is includes ONLY free asse
 
 ## Preview
 
-<p >
-  <img src="Media/SS1.png" width="325" >
-  <img src="Media/SS2.png" width="325" >
-  <img src="Media/SS3.png" width="325" >
+<p align="center" >
+  <img src="Media/SS1.png" width="300" >
+  <img src="Media/SS2.png" width="300" >
+  <img src="Media/SS3.png" width="300" >
+</p>
+<p align="center">
+  <img src="Media/Gif.gif" width="900">
 </p>
 
-<img src="Media/Gif.gif" width="800">
 
 ## Assets
 CoffeShop Assets= [CoffeeShop Starter Pack](https://assetstore.unity.com/packages/3d/props/coffeeshop-starter-pack-160914).

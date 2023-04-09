@@ -1,11 +1,12 @@
 # CoffeStack-Clone
 This is my first assigmnet for JuniorFactory incubation program.
 This project is a Clone of Coffe stack game you can acces to the orginal game from teese links.
-There is a 2 Sceenes in the project, FreeAsset Scenee is includes ONLY free assets and CloneAssets Sceene uses the clone assets that made for this porject. 
 
 📱 Google Play: https://play.google.com/store/apps/details?id=markergame.coffeestack
 
 🍎 App Store: https://apps.apple.com/us/app/coffee-stack/id1591921962
+
+There is a 2 Sceenes in the project, FreeAsset Scenee is includes ONLY free assets and CloneAssets Sceene uses the clone assets that made for this porject.All the porject is made by me.
 
 ## Unity Version
 - 2022.3.32f1

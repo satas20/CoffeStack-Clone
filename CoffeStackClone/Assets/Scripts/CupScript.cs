@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class CupScript : MonoBehaviour
 {
+    public GameObject CupWCoffe;
+    public GameObject Cup;
+    public GameObject CupSup;
+    public GameObject CupCap;
     public bool isCoffe;
     public bool isCap;
     public bool isSup;
     public int price = 1;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+  
     // Update is called once per frame
     void Update()
     {
-        
+        if (isCap){
+            CupCap.SetActive(true);
+
+        }
+        if (isCoffe)
+        {
+            Cup.SetActive(false);
+            CupWCoffe.SetActive(true);
+         
+
+        }
+        if (isSup){
+            Cup.SetActive(false);
+            CupWCoffe.SetActive(false);
+            CupSup.SetActive(true);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

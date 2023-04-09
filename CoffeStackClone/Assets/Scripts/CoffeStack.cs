@@ -7,6 +7,7 @@ using TMPro;
 
 public class CoffeStack : MonoBehaviour
 {
+    public int i = -1;
     public int totalMoney;
     public TMP_Text PriceText;
     public float movementDelay;
@@ -48,7 +49,11 @@ public class CoffeStack : MonoBehaviour
     public void UnStackCup(int index)
     {
         for(int i = cups.Count-1; i >= index; i--){
-            if (i == 0) { return; }
+            if (i == 0) {
+                gameObject.transform.DOMoveZ(transform.position.z-5,0.5f);
+
+                return;
+            }
             cups[i].GetComponent<BoxCollider>().isTrigger = true;
             cups[i].tag = "Cup";
             Destroy(cups[i].GetComponent<Collision>());
@@ -68,14 +73,12 @@ public class CoffeStack : MonoBehaviour
     }
     public void SellCup(GameObject cup)
     {
-        cup.GetComponent<BoxCollider>().isTrigger = true;
         cup.tag = "Cup";
         Destroy(cup.GetComponent<Collision>());
         Destroy(cup.GetComponent<Rigidbody>());
-        cup.transform.parent = null;
         cups.Remove(cup);
         totalMoney += cup.GetComponent<CupScript>().price;
-        Destroy(cup);
+        
     }
     public IEnumerator scaleEffect()
     {
@@ -95,15 +98,15 @@ public class CoffeStack : MonoBehaviour
         gameObject.GetComponent<Movement>().swipeSpeed = 0;
 
         enPos.x = 0;
-        cups[0].transform.DOLocalMove(enPos, 1);
+        cups[0].transform.DOMoveX(0, 1);
     }
     public void EndGame(){
 
         Vector3 enPos = cups[0].transform.position;
         Destroy(gameObject.GetComponent<Movement>());
 
-        enPos.y += totalMoney;
-        cups[0].transform.DOLocalMove(enPos,10);
+        enPos.y += totalMoney*3;
+        cups[0].transform.DOMove(enPos,5);
     }
     private int calculatePrice(){
         int price = 0;
